@@ -34,7 +34,6 @@ public class SnakeGame extends JPanel implements KeyListener
 			@Override
 			public void keyPressed(KeyEvent e)
 			{
-				System.out.println(e.getKeyChar());
 				newDirection = getDirectionByKey(e);
 			}
 		});
@@ -79,7 +78,7 @@ public class SnakeGame extends JPanel implements KeyListener
 		}while (matchesSnake);
 
 		snake.ateAllFood = false;
-		System.out.println("Food created");
+		//System.out.println("Food created");
 
 		return food = foodPos;
 	}

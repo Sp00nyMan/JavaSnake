@@ -135,7 +135,7 @@ public class Snake
 
 	private void expand()
 	{
-		System.out.println("Expanded");
+		//System.out.println("Expanded");
 		BodyPart[] temp = new BodyPart[body.length + 1];
 
 		int i = 0;

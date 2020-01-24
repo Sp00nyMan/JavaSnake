@@ -1,17 +1,28 @@
 import Graphics.SnakeWindow;
+import VoiceRecognition.Recognition;
+import VoiceRecognition.VoiceFile;
+
+import javax.sound.sampled.LineUnavailableException;
+
 
 public class Main
 {
 	public static void main(String[] args)
 	{
-		Runnable gameRunnable = new Runnable() {
-			@Override
-			public void run()
-			{
-				SnakeWindow sw = new SnakeWindow();
-				sw.startGame();
-			}
-		};
-		new Thread(gameRunnable).start();
+		Thread recogn = null;
+		recogn = new Thread(new Recognition());
+		recogn.start();
+
+
+
+
+
+
+
+		SnakeWindow sw = new SnakeWindow();
+		sw.startGame();
+
+		System.exit(1);
 	}
 }
+
