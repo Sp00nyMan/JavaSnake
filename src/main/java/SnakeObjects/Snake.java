@@ -6,7 +6,7 @@ import static SnakeObjects.Snake.diraction.*;
 
 public class Snake
 {
-	public static final int partSize = 32;
+	public static final int partSize = 45;
 
 	private class BodyPart
 	{
