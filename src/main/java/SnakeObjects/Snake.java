@@ -36,10 +36,6 @@ public class Snake
 			this.x = other.x;
 			this.y = other.y;
 		}
-
-		int getX() { return x; }
-
-		int getY() { return y; }
 	}
 
 	public enum diraction
@@ -114,10 +110,7 @@ public class Snake
 		body[0].update(headCopy);
 
 		if (body.length == fieldSize * fieldSize)
-		{
-			System.out.println("WON");
 			return false;
-		}
 		return alive;
 	}
 
@@ -135,7 +128,7 @@ public class Snake
 
 	private void expand()
 	{
-		System.out.println("Expanded");
+		//System.out.println("Expanded");
 		BodyPart[] temp = new BodyPart[body.length + 1];
 
 		int i = 0;

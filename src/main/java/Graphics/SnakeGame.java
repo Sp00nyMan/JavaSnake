@@ -4,7 +4,6 @@ import SnakeObjects.Snake;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Random;
@@ -14,7 +13,7 @@ public class SnakeGame extends JPanel implements KeyListener
 	public static final int fieldSize = 20;
 	private static final int updateDelayMS = (int) (Snake.partSize * 2.5f);
 
-	Snake snake;
+	Snake snake = new Snake(fieldSize);
 	boolean isGameRunning = false;
 	private Snake.diraction newDirection;
 	private Point food;
@@ -26,24 +25,10 @@ public class SnakeGame extends JPanel implements KeyListener
 	private static final Rectangle HeadImg = new Rectangle(Snake.partSize, Snake.partSize);
 	private static final Rectangle BodyImg = new Rectangle(Snake.partSize, Snake.partSize);
 
-	public SnakeGame()
-	{
-
-		snake = new Snake(fieldSize);
-		addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyPressed(KeyEvent e)
-			{
-				System.out.println(e.getKeyChar());
-				newDirection = getDirectionByKey(e);
-			}
-		});
-	}
-
 	private boolean gameCycle()
 	{
 		if(snake.ateAllFood)
-			createFood();
+			food = createFood();
 		isGameRunning = snake.update(fieldSize, food, newDirection);
 		newDirection = null;
 		if(!isGameRunning)
@@ -79,7 +64,7 @@ public class SnakeGame extends JPanel implements KeyListener
 		}while (matchesSnake);
 
 		snake.ateAllFood = false;
-		System.out.println("Food created");
+		//System.out.println("Food created");
 
 		return food = foodPos;
 	}
@@ -105,7 +90,7 @@ public class SnakeGame extends JPanel implements KeyListener
 	public void paintComponent(Graphics gg)
 	{
 		Graphics2D g = (Graphics2D) gg;//.create();
-		super.paintComponent(gg);
+		super.paintComponent(g);
 		Point[] snakeP = snake.getSnakePositions();
 
 		g.setColor(Color.black);

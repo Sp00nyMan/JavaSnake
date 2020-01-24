@@ -4,14 +4,23 @@ public class Main
 {
 	public static void main(String[] args)
 	{
-		Runnable gameRunnable = new Runnable() {
+		Thread gameThread = new Thread( new Runnable() {
 			@Override
 			public void run()
 			{
 				SnakeWindow sw = new SnakeWindow();
 				sw.startGame();
 			}
-		};
-		new Thread(gameRunnable).start();
+		});
+		gameThread.start();
+		try
+		{
+			gameThread.join();
+		}
+		catch (InterruptedException e)
+		{
+			e.printStackTrace();
+		}
+		System.exit(1);
 	}
 }
