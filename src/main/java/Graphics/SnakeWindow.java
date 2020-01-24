@@ -23,5 +23,6 @@ public class SnakeWindow extends JFrame
 			addKeyListener(snakeGame);
 
 			snakeGame.startGame();
+			setVisible(false);
 	}
 }

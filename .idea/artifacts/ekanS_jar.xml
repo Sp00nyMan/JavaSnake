@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="ekanS:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ekanS_jar</output-path>
+    <root id="archive" name="ekanS.jar">
+      <element id="module-output" name="ekanS" />
+    </root>
+  </artifact>
+</component>
