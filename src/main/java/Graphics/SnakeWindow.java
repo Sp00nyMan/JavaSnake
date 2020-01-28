@@ -1,7 +1,6 @@
 package Graphics;
 
 import SnakeObjects.Snake;
-
 import javax.swing.*;
 
 public class SnakeWindow extends JFrame
