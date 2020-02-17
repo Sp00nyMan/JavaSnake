@@ -9,7 +9,7 @@ public class SnakeWindow extends JFrame
 	{
 		super("SNAKE");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setBounds(40, 40, SnakeGame.fieldSize * Snake.partSize + 16, SnakeGame.fieldSize * Snake.partSize + 39);
+		setBounds(0, 0, SnakeGame.fieldSize * Snake.partSize + 15, SnakeGame.fieldSize * Snake.partSize + 38);
 
 		setVisible(true);
 	}

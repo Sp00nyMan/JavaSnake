@@ -8,7 +8,7 @@ public class Snake
 {
 	public static final int partSize = 32;
 
-	private class BodyPart
+	private static class BodyPart
 	{
 		private int x;
 		private int y;

@@ -10,8 +10,8 @@ import java.util.Random;
 
 public class SnakeGame extends JPanel implements KeyListener
 {
-	public static final int fieldSize = 20;
-	private static final int updateDelayMS = (int) (Snake.partSize * 2.5f);
+	public static final int fieldSize = 18;
+	private static final int updateDelayMS = (int) (Snake.partSize * 3f);
 
 	Snake snake = new Snake(fieldSize);
 	boolean isGameRunning = false;
@@ -64,7 +64,6 @@ public class SnakeGame extends JPanel implements KeyListener
 		}while (matchesSnake);
 
 		snake.ateAllFood = false;
-		//System.out.println("Food created");
 
 		return food = foodPos;
 	}
@@ -73,12 +72,16 @@ public class SnakeGame extends JPanel implements KeyListener
 	{
 		switch (keyEvent.getKeyCode())
 		{
+			case KeyEvent.VK_S:
 			case KeyEvent.VK_DOWN:
 				return Snake.diraction.down;
+			case KeyEvent.VK_W:
 			case KeyEvent.VK_UP:
 				return Snake.diraction.up;
+			case KeyEvent.VK_A:
 			case KeyEvent.VK_LEFT:
 				return Snake.diraction.left;
+			case KeyEvent.VK_D:
 			case KeyEvent.VK_RIGHT:
 				return Snake.diraction.right;
 		}
@@ -125,9 +128,11 @@ public class SnakeGame extends JPanel implements KeyListener
 	{
 		while(gameCycle())
 		{
-			try {
+			try
+			{
 				Thread.sleep(updateDelayMS);
-			} catch (InterruptedException e){}
+			}
+			catch (InterruptedException e){	}
 		}
 		System.out.println(snake.getSnakePositions().length - Snake.DEFAULT_SNAKE_LENGTH);
 		System.out.println("Game over!");
